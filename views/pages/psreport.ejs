@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <% include ../partials/head %>
+</head>
+<body>
+    <% include ../partials/header %>
+
+    
+    <script>
+    var create= d3.select('body').append("svg").attr('width',500).attr('height',500).style("background","pink");
+    var jsondata= [{'name':'Shailesh','salary':5000},
+    {'name':'Sunil','salary':6000},
+    {'name':'Pranil','salary':7000}
+]
+
+
+var colors= d3.scaleOrdinal(d3.schemeDark2);
+var data= d3.pie().sort(null).value(function(d){return d.salary}) (jsondata);
+
+var segments = d3.arc().innerRadius(0).outerRadius(200).padAngle(0.05).padRadius(50);
+
+var sections= create.append("g").attr("transform","translate(250,250)").selectAll('path').data(data).enter().append("path").attr("d",segments).attr("fill",function(d){ return colors(d.data.salary);});
+
+console.log(data);
+    </script>
+</body>
+</html>

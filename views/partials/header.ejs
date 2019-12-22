@@ -1,0 +1,325 @@
+<!-- views/partials/header.ejs -->
+
+
+<style>
+nav.mainheader{
+  box-shadow:5px 5px black;
+  
+}
+
+
+
+.homedropdown > li > a
+{
+color:white !important;
+}
+ nav.mainheader,mainheader ul
+      {
+        display: flex;
+      
+  
+             } 
+
+       nav.mainheader > ul > li
+      {
+        list-style: none;
+
+        position: relative;
+        margin:10px 4px;
+
+        letter-spacing: 1px;
+      
+      } 
+      
+      nav.mainheader  > div> ul > li > a:last-child{
+        margin-right: 0;
+      } 
+       nav.mainheader  > div > ul > li > a
+      {
+        text-decoration: none !important;
+        color: black !important;
+        font-weight:bold;
+        
+        position: relative;
+       
+        font-size:14px !important;
+       
+      }
+             nav.mainheader > div > ul > li > a::before,nav.mainheader  > div > ul > li > a::after
+          {
+            content:'';
+            position: absolute;
+            width:100%;
+            height:2px;
+            background-color: red;
+            transform: scaleX(0);
+            left: 0;
+            transition: all 1s;
+          }
+         
+          nav.mainheader  > div > ul > li > a:hover::before, nav.mainheader > div > ul li a:hover::after
+          {
+            transform:scaleX(1);
+          }
+         nav.mainheader  > div > ul > li > a::before
+          {
+            top:-4px;
+            transform-origin: left;
+          }
+           
+         nav.mainheader > div > ul > li > a::after
+            {
+              bottom:-4px;
+              transform-origin:right;
+            } 
+
+.report{
+  z-index:2000 !important;
+}
+            @keyframes slideIn {
+  from{
+
+  }
+  to{
+    transform: translateX(0);
+    transform: scaleX(1);
+  }
+}
+</style>
+
+  <nav class="navbar mb-2 mainheader  navbar-expand text-black navbar-light ">
+  <% if(hoteldetails.logo) { %>
+ <a class="navbar-brand mt-1" href="#"><img style="width:40px; height:40px; border-radius:50%; opacity:1;" src="<%= hoteldetails.logo %>" /></a>
+ <% } else { %>
+  
+  <a class="navbar-brand mt-2" href="http://www.hotelatlas.com.np">
+ <h1>Add logo </h1></a>
+  <% } %>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto text-white">
+    <li style="z-index:6000 !important;" class="nav-item active reportdropdown dropdown ml-1">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Masters</a>
+        <ul style="z-index:6000 !important; font-size:15px;"  class="homedropdown dropdown-menu text-white bg-dark" aria-labelledby="navbarDropdownMenuLink ">
+
+          <li class="dropdown-submenu"><a  data-toggle="modal" data-target="#customerModal"  class=" dropdown-item text-dark"  href="#">Customer Management</a>
+           
+          </li>
+
+             <li class="dropdown-submenu"><a  class="dropdown-item  text-dark" data-toggle="modal" data-target="#employeeModal" href="#">Employee Management</a>
+          </li>
+
+          <li><a class="dropdown-item text-dark" data-toggle="modal" data-target="#vendorModal" href="#">Vendor Management</a></li>
+          <li><a class="dropdown-item text-dark"  data-toggle="modal" data-target="#adminModal" href="#">Admin Management</a></li>
+
+           <li><a class="dropdown-item text-dark" data-toggle="modal" data-target="#cashModal" href="#">Cash Counter</a></li>
+          <li><a class="dropdown-item text-dark" href="#">Customer Balance Details</a></li>
+        </ul>
+        </li>
+      <li style="z-index:6000 !important;" class="nav-item active reportdropdown dropdown ml-1">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Stock Management</a>
+        <ul style="z-index:6000 !important;"  class="dropdown-menu homedropdown bg-dark" aria-labelledby="navbarDropdownMenuLink">
+
+          <li class="dropdown-submenu"><a class=" dropdown-item" data-toggle="modal" data-target="#categoryModal"  href="#">Manage Category</a>
+           
+          </li>
+             <li class="dropdown-submenu"><a class="dropdown-item" data-toggle="modal" data-target="#itemgroupsModal"  href="#">Manage Sub-Category</a>
+          </li>
+
+          <li><a  class=" dropdown-item" data-toggle="modal" data-target="#itemsModal" href="#">Manage Item</a></li>
+          <li><a class="dropdown-item" data-toggle="modal" data-target="#unitsModal" href="#">Manage Unit</a></li>
+
+         
+        </ul>
+      </li>
+        <li class="nav-item active ml-1">
+        <a class="nav-link" href="/sales">Sales</a>
+      </li>
+    </li>
+    <li class="nav-item active ml-1">
+    <a class="nav-link" href="/sellingitem">Create Item</a>
+  </li>
+</li>
+<li class="nav-item active ml-1">
+<a class="nav-link" href="/billing">Billing</a>
+</li>
+      <li class="nav-item active ml-1">
+        <a class="nav-link" href="/purchase">Purchase</a>
+      </li>
+      <li class="nav-item active ml-1">
+        <a class="nav-link" href="/voucher">Voucher</a>
+      </li>
+       <!-- <li style="z-index:6000 !important;" class="nav-item active reportdropdown dropdown ml-1">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Stock Management</a>
+        <ul style="z-index:6000 !important;"  class="dropdown-menu homedropdown bg-dark" aria-labelledby="navbarDropdownMenuLink">
+
+          <li class="dropdown-submenu"><a class=" dropdown-item"  href="#">Raw Material Category</a>
+           
+          </li>
+             <li class="dropdown-submenu"><a class="dropdown-item" data-toggle="dropdown" href="#">Unit Management</a>
+          </li>
+                    <li><a class="dropdown-item" href="#">Raw material</a></li>
+
+          <li><a class="dropdown-item" href="#">Recipe</a></li>
+          <li><a class="dropdown-item" href="#">Purchase History</a></li>
+
+         
+        </ul>
+      </li> -->
+       <!-- <li class="nav-item active ml-1">
+        <a class="nav-link" href="/billing">Order</a>
+      </li> -->
+
+ 
+      <li class="nav-item dropdown active ml-1">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="#">Employee</a>
+          <ul style="z-index:6000 !important;"  class="dropdown-menu homedropdown bg-dark" aria-labelledby="navbarDropdownMenuLink">
+            
+              <li class="dropdown-submenu"><a class="dropdown-item"  href="/employee">Employee</a>
+              </li>
+
+              <li class="dropdown-submenu"><a class=" dropdown-item"  href="/empposition">Add Post</a>
+               
+              </li>
+              <li class="dropdown-submenu"><a class=" dropdown-item"  href="/attendance">Attendance</a>
+
+              </li>
+              <li><a class="dropdown-item" href="/searchattendance">View Attendance</a></li>
+
+              <li><a  class=" dropdown-item"  href="/count_attendance">Monthly Attendance report</a></li>
+              
+            </ul>
+        </li>
+      <li style="z-index:6000 !important;" class="nav-item active reportdropdown dropdown ml-1">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdownMenuLink">Payment</a>
+          <ul style="z-index:6000 !important;"  class="dropdown-menu homedropdown bg-dark" aria-labelledby="navbarDropdownMenuLink">
+
+          <li class="dropdown-submenu"><a class=" dropdown-item"  href="#">Supplier Payment</a>
+           
+          </li>
+             <li class="dropdown-submenu"><a class="dropdown-item" data-toggle="dropdown" href="#">Supplier Payment Details</a>
+          </li>
+                    <li><a class="dropdown-item" href="#">Customer Payment</a></li>
+
+          <li><a class="dropdown-item" href="#">Customer Payment Details</a></li>
+          
+
+         
+        </ul>
+        </li>
+      <li style="z-index:6000 !important;" class="nav-item active reportdropdown dropdown ml-1">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Report
+        </a>
+        <ul style="z-index:6000 !important;"  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+          <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle text-dark" data-toggle="dropdown" href="#">Daybook</a>
+            <ul class="dropdown-menu">
+              <a class="dropdown-item text-dark" href="#">View Daybook</a>
+              <a class="dropdown-item text-dark" href="#">Alter Daybook</a>
+            </ul>
+          </li>
+             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle text-dark" data-toggle="dropdown" href="#">Ledger</a>
+            <ul class="dropdown-menu">
+              <a class="dropdown-item text-dark" href="/ledger">View Ledger</a>
+              <a class="dropdown-item text-dark" href="#">Alter Ledger</a>
+            </ul>
+          </li>
+
+          <li><a class="dropdown-item text-dark" href="#">Trial Balance</a></li>
+          <li><a class="dropdown-item text-dark" href="#">Balance Sheet</a></li>
+          <li><a class="dropdown-item text-dark" href="/servicereport">Visit Service Report</a></li>
+
+
+         
+        </ul>
+      </li>
+
+        <li class="nav-item active ml-1">
+        <a class="nav-link" href="/setting">Setting</a>
+      </li>
+
+         <li class="nav-item active ml-5">
+        <button style="box-shadow:3px 3px 2px 2px #EEE; background-color:red; color:white;" class="nav-link logout float-right border rounded-top rounded-bottom" href="/logout">Logout</button>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+          <% include ./itemgroupcreate %>
+
+        <% include ./customermodal %>
+        <% include ./vendormodal %>
+        <% include ./adminmodal %>
+        <% include ./categorymodal %>
+        <% include ./itemmodal %>
+        <% include ./unitModal %>
+
+      
+
+
+        <% include ./employeemodal %>
+        <% include ./cashmodal %>
+        
+
+        
+
+
+
+    <script src="../js/salesitemcreate.js"></script>
+
+<script>
+
+
+$('button.logout').on('click',function(e)
+{
+  Cookies.set('username','');
+  Cookies.set('password','');
+  window.location.replace("http://account.hotelatlas.com.np/login");
+
+  
+})
+var refresh_rate = 400; //<-- In seconds, change to your needs
+var last_user_action = 0;
+var has_focus = false;
+var lost_focus_count = 0;
+var focus_margin = 10; // If we lose focus more then the margin we want to refresh
+
+
+function reset() {
+    last_user_action = 0;
+    console.log("Reset");
+}
+
+function windowHasFocus() {
+    has_focus = true;
+}
+
+function windowLostFocus() {
+    has_focus = false;
+    lost_focus_count++;
+    console.log(lost_focus_count + " <~ Lost Focus");
+}
+
+setInterval(function () {
+    last_user_action++;
+    refreshCheck();
+}, 1000);
+
+function refreshCheck() {
+    var focus = window.onfocus;
+    if ((last_user_action >= refresh_rate && !has_focus && document.readyState == "complete") || lost_focus_count > focus_margin) {
+        window.location.reload(); // If this is called no reset is needed
+        reset(); // We want to reset just to make sure the location reload is not called.
+    }
+
+}
+window.addEventListener("focus", windowHasFocus, false);
+window.addEventListener("blur", windowLostFocus, false);
+window.addEventListener("click", reset, false);
+window.addEventListener("mousemove", reset, false);
+window.addEventListener("keypress", reset, false);
+window.addEventListener("scroll", reset, false);
+document.addEventListener("touchMove", reset, false);
+document.addEventListener("touchEnd", reset, false);
+</script>
