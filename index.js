@@ -62,11 +62,11 @@ var transactionno;
 // });
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "localhost:3306",
   user: "janapriya",
   password: "?P7ev40m",
   database: "ansunepa_chulohotel",
-port: 3306,
+
   multipleStatements: true
 });
 // var con = mysql.createConnection({
