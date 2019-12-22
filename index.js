@@ -63,9 +63,9 @@ var transactionno;
 
 var con = mysql.createConnection({
   host: "localhost",
-  user: "thechulohotel",
-  password: "thechulohotel@123",
-  database: "ansunepa_chulo",
+  user: "janapriya",
+  password: "?P7ev40m",
+  database: "ansunepa_chulohotel",
 port: 3306,
   multipleStatements: true
 });
@@ -73,8 +73,8 @@ port: 3306,
 //   host: "localhost",
 //   user: "root",
 //   password: "",
-//   port: 3308,
-//   database:'hotelatlas',
+//   port: 3306,
+//   database:'hoteldb',
 //   multipleStatements: true
 // });
 // var newcon= {host: "localhost",
@@ -2186,8 +2186,6 @@ app.get("/home",authenticate,function(req,res)
 {
   res.render('pages/index');
 })
-var port = process.env.port || 4000;
-app.listen(port, () => console.log('Listening on port 3000'));
 
 app.post('/checkpassword', function (req, res) {
   console.log(req.body);
