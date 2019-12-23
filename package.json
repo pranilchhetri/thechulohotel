@@ -20,10 +20,6 @@
     "mysql-events": "0.0.11",
     "path": "^0.12.7",
     "random-number": "0.0.9"
-  },
-  "devDependencies": {
-    "grunt": "^1.0.3",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-execute": "^0.2.2"
   }
+ 
 }

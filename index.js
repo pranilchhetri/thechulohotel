@@ -76,7 +76,7 @@ var con = mysql.createConnection({
   port: 3306,
   database:'ansunepa_chulohotel',
   multipleStatements: true
-});
+}); 
 // var newcon= {host: "localhost",
 //   user: "root",
 //   password: "",
