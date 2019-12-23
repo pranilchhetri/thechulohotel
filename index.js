@@ -52,23 +52,23 @@ var authenticate = function (req, res, next) {
 }
 var vouchertype;
 var transactionno;
-// var con = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "hoteldb",
-//   port: 3306,
-//   multipleStatements: true
-// });
-
 var con = mysql.createConnection({
   host: "localhost",
-  user: "janapriya",
-  password: "?P7ev40m",
-  database: "ansunepa_chulohotel",
-port: 3306,
+  user: "root",
+  password: "",
+  database: "hoteldb",
+  port: 3306,
   multipleStatements: true
 });
+
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "janapriya",
+//   password: "?P7ev40m",
+//   database: "ansunepa_chulohotel",
+// port: 3306,
+//   multipleStatements: true
+// });
 // var con = mysql.createConnection({
 //   host: "localhost",
 //   user: "root",
@@ -2958,7 +2958,7 @@ app.post('/employee',function(req,res){
 
 
 //create server
-const server = app.listen(3006,"127.0.0.1",function(){
+const server = app.listen(8080,"127.0.0.1",function(){
   var host = server.address().address
   var port = server.address().port
   
